@@ -1,0 +1,173 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ao</groupId>
+	<artifactId>digital-delegation</artifactId>
+	<packaging>jar</packaging>
+	<!--<version>1.3-SNAPSHOT</version>-->
+    <version>1.2.1</version>
+	<name>digital-delegation</name>
+	<url>http://code.google.com/p/digital-delegation</url>
+
+	<build>
+		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+		</plugins>
+		
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.9</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+		</extensions>
+	</build>
+    
+    <scm>
+		<connection>scm:svn:http://digital-delegation.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://digital-delegation.googlecode.com/svn/trunk</developerConnection>
+	</scm>
+	
+    <distributionManagement>
+		<repository>
+			<id>digital-delegation.googlecode</id>
+			<name>digital-delegation.googlecode.releases</name>
+			<url>dav:https://digital-delegation.googlecode.com/svn/repository</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+		<snapshotRepository>
+			<id>digital-delegation.googlecode</id>
+			<name>digital-delegation.googlecode.snapshots</name>
+			<url>dav:https://digital-delegation.googlecode.com/svn/repository</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+	
+	<repositories>
+		<repository>
+			<id>guice-maven</id>
+			<name>guice maven</name>
+			<url>http://guice-maven.googlecode.com/svn/trunk</url>
+		</repository>
+		<repository>
+			<id>alexo-utilities</id>
+			<name>Alex Ostrovsky Utilities</name>
+			<url>http://alexoutilities.googlecode.com/svn/repository</url>
+		</repository>
+		<repository>
+			<id>digital-delegation</id>
+			<name>Digital Delegation Library</name>
+			<url>http://digital-delegation.googlecode.com/svn/repository</url>
+		</repository>
+
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<type>jar</type>
+			<scope>test</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.guice</groupId>
+			<artifactId>guice</artifactId>
+			<version>2.0.1</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.0</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>jakarta-regexp</groupId>
+			<artifactId>jakarta-regexp</artifactId>
+			<version>1.4</version>
+			<optional>false</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>ao</groupId>
+			<artifactId>utils</artifactId>
+			<!--<version>1.3-SNAPSHOT</version>-->
+            <version>1.2</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>javolution</groupId>
+			<artifactId>javolution</artifactId>
+			<version>5.4.0</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>glub</groupId>
+			<artifactId>gtftps</artifactId>
+			<version>2.5.15</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>2.0</version>
+			<optional>false</optional>
+		</dependency>
+        <dependency>
+            <groupId>com.google.common</groupId>
+            <artifactId>google-guava</artifactId>
+            <version>r11</version>
+            <optional>false</optional>
+        </dependency>
+	</dependencies>
+</project>
