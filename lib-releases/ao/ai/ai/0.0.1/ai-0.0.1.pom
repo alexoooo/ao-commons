@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--========================================================================-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+
+    <!--====================================================================-->
+    <parent>
+        <groupId>ao</groupId>
+        <artifactId>ao-commons</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+
+    <!--====================================================================-->
+    <name>AI</name>
+    <groupId>ao.ai</groupId>
+    <artifactId>ai</artifactId>
+    <version>0.0.1</version>
+
+
+    <!--====================================================================-->
+    <modules>
+        <module>ai-model</module>
+        <module>ai-regression</module>
+        <module>ai-classification</module>
+        <module>ai-demo</module>
+    </modules>
+
+
+    <!--====================================================================-->
+    <url>http://code.google.com/p/datamine</url>
+    <inceptionYear>2008</inceptionYear>
+
+
+    <!--====================================================================-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0</version>
+                <configuration>
+                    <tagBase>https://datamine.googlecode.com/svn/proj/ai/tags</tagBase>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!--====================================================================-->
+    <scm>
+        <developerConnection>
+            scm:svn:https://datamine.googlecode.com/svn/proj/ai/tags/ai-0.0.1
+        </developerConnection>
+    </scm>
+
+
+    <!--====================================================================-->
+    <repositories>
+        <repository>
+            <id>ao-central</id>
+            <name>ao specific releases</name>
+            <url>http://ao-commons.googlecode.com/svn/repo/lib-releases</url>
+        </repository>
+    </repositories>
+
+
+    <!--====================================================================-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ao.ai</groupId>
+                <artifactId>ai-model</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ao.ai</groupId>
+                <artifactId>ai-classification</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ao.util</groupId>
+                <artifactId>util-lang</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.common</groupId>
+                <artifactId>google-guava</artifactId>
+                <version>r11</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <!--====================================================================-->
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+            <classifier>jdk15</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.4.2</version>
+            <optional>false</optional>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+    </dependencies>
+</project>

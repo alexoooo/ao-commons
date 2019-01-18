@@ -1,0 +1,42 @@
+<!--========================================================================-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+
+
+    <!--====================================================================-->
+    <parent>
+        <groupId>ao.util</groupId>
+        <artifactId>util-parent</artifactId>
+        <version>2.1.1</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    
+    <!--====================================================================-->
+    <name>Utilities -&gt; Persistent Serialization</name>
+    <groupId>${parent.groupId}</groupId>
+    <artifactId>util-serial-persist</artifactId>
+    <version>2.1.1</version>
+
+    
+    <!--====================================================================-->
+    <dependencies>
+        <dependency>
+            <groupId>ao.util</groupId>
+            <artifactId>util-lang</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ao.util</groupId>
+            <artifactId>util-serial</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ao.util</groupId>
+            <artifactId>util-persist</artifactId>
+        </dependency>
+    </dependencies>
+</project>

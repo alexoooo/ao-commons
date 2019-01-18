@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- ========================================================================================================== -->
+    <!--
+        To take advantage of the automated release plugin, place this in your project's root pom:
+
+    <scm>
+        <developerConnection>
+            scm:svn:${svn.root}/${svn.dev.path}
+        </developerConnection>
+    </scm>
+
+    <properties>
+        <svn.root>https://XXXX.googlecode.com/svn/proj/PATH</svn.root>
+    </properties>
+
+        It is assumed that you are following the standard SVN layout:
+            <project root>/trunk, /branches, /tags.
+        To release from a branch, set the svn.dev.path property.
+    -->
+
+
+    <!-- ========================================================================================================== -->
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!-- ========================================================================================================== -->
+    <groupId>ao.common</groupId>
+    <artifactId>ao-parent</artifactId>
+    <version>5</version>
+    <packaging>pom</packaging>
+
+
+    <!-- ========================================================================================================== -->
+    <name>AO Organizational POM</name>
+    <description>AO Organizational POM</description>
+    <url>http://code.google.com/p/ao-commons</url>
+    <inceptionYear>2009</inceptionYear>
+
+    <organization>
+        <name>AO</name>
+        <url>http://code.google.com/u/ostrovsky.alex</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>MIT Licence</name>
+            <url>http://www.opensource.org/licenses/mit-license.html</url>
+            <comments>
+                This is the most liberal copyleft license that I could find.
+                
+                Note that Maven's packaging will automatically include the pom file, thereby ensuring that:
+                
+                    "The above copyright notice and this permission notice shall be included
+                        in all copies or substantial portions of the Software."
+                    (See license)
+            </comments>
+        </license>
+    </licenses>
+    
+
+    <!-- ========================================================================================================== -->
+    <developers>
+        <developer>
+            <id>ao</id>
+            <name>Alex Ostrovsky</name>
+            <email>alex@ostrovsky.biz</email>
+        </developer>
+    </developers>
+
+    <contributors />
+
+
+    <!-- ========================================================================================================== -->
+    <scm>
+        <developerConnection>
+            scm:svn:https://ao-commons.googlecode.com/svn/proj/ao-parent/tags/\
+        </developerConnection>
+    </scm>
+    
+
+    <!-- ========================================================================================================== -->
+    <properties>
+        <!-- Release configuration -->
+        <svn.root>https://ao-commons.googlecode.com/svn/proj/ao-parent</svn.root>
+        <svn.dev.path>trunk</svn.dev.path>
+        <svn.tag.path>tags</svn.tag.path>
+        <auto.version.subs>true</auto.version.subs>
+
+        <!-- Java source and target versions -->
+        <java.source.version>1.6</java.source.version>
+        <java.target.version>1.6</java.target.version>
+
+        <!-- Avoid platform-dependant encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- Maven hosting, internal dependencies -->
+    <distributionManagement>
+        <repository>
+            <id>ao-commons</id>
+            <url>dav:https://ao-commons.googlecode.com/svn/repo/lib-releases</url>
+        </repository>
+
+        <!--<snapshotRepository>
+            <id>ao-commons</id>
+            <url>dav:https://ao-commons.googlecode.com/svn/repo/lib-snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>-->
+    </distributionManagement>
+
+
+    <!-- ========================================================================================================== -->
+    <!-- Maven hosting, external dependencies -->
+    <repositories>
+        <repository>
+            <id>ao-commons</id>
+            <name>External Dependency Releases</name>
+            <url>http://ao-commons.googlecode.com/svn/repo/ext-releases</url>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+    </repositories>
+
+    
+    <!-- ========================================================================================================== -->
+    <build>
+        <plugins>
+            <!-- Java language level: 1.6 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0</version>
+                <configuration>
+                    <tagBase>${svn.root}/${svn.tag.path}</tagBase>
+                    <autoVersionSubmodules>
+                        ${auto.version.subs}
+                    </autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
+    </build>
+
+
+    <!-- ========================================================================================================== -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>2.5</version>
+
+                <configuration>
+                    <targetJdk>${java.target.version}</targetJdk>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.3.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javancss-maven-plugin</artifactId>
+                <version>2.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>

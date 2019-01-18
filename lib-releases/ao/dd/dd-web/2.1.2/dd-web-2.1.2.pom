@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+
+
+    <!--====================================================================-->
+    <parent>
+        <groupId>ao.dd</groupId>
+        <artifactId>dd-parent</artifactId>
+        <version>2.1.2</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+
+    <!--====================================================================-->
+    <name>Digital Delegation -&gt; Web</name>
+    <groupId>${parent.groupId}</groupId>
+    <artifactId>dd-web</artifactId>
+    <version>2.1.2</version>
+
+    
+    <!--====================================================================-->
+    <repositories>
+        <repository>
+            <id>guice-maven</id>
+            <name>guice maven</name>
+            <url>http://guice-maven.googlecode.com/svn/trunk</url>
+        </repository>
+    </repositories>
+
+
+    <!--====================================================================-->
+    <dependencies>
+        <dependency>
+            <groupId>ao.dd</groupId>
+            <artifactId>dd-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>ao.util</groupId>
+            <artifactId>util-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ao.util</groupId>
+            <artifactId>util-serial</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.guice</groupId>
+            <artifactId>guice</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+    </dependencies>
+</project>

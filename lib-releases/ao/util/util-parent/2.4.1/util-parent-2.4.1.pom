@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!--====================================================================-->
+    <parent>
+        <groupId>ao.common</groupId>
+        <artifactId>ao-parent</artifactId>
+        <version>6</version>
+    </parent>
+
+
+    <!--====================================================================-->
+    <groupId>ao.util</groupId>
+    <artifactId>util-parent</artifactId>
+    <version>2.4.1</version>
+    <packaging>pom</packaging>
+
+    
+    <!--====================================================================-->
+    <name>Utilities</name>
+    <description>Generic Utilities</description>
+    <url>http://code.google.com/p/alexoutilities</url>
+    <inceptionYear>2007</inceptionYear>
+
+
+    <!--====================================================================-->
+    <modules>
+        <module>util-lang</module>
+        <module>util-compress</module>
+        <module>util-persist</module>
+        <module>util-serial</module>
+        <module>util-serial-persist</module>
+        <module>util-parse</module>
+        <module>util-all</module>
+    </modules>
+
+
+    <!--====================================================================-->
+    <scm>
+        <developerConnection>
+            scm:svn:https://alexoutilities.googlecode.com/svn/proj/util/tags/util-parent-2.4.1
+        </developerConnection>
+    </scm>
+
+
+    <!--====================================================================-->
+    <properties>
+        <svn.root>https://alexoutilities.googlecode.com/svn/proj/util</svn.root>
+    </properties>
+
+    
+    <!--====================================================================-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>util-lang</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>util-compress</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>util-serial</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>util-persist</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>util-serial-persist</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>util-parse</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>5.12.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+    </dependencies>
+
+    
+    <!--====================================================================-->
+    <repositories>
+        <repository>
+            <id>ao-central</id>
+            <name>AO Specific Releases</name>
+            <url>http://ao-commons.googlecode.com/svn/repo/lib-releases</url>
+        </repository>
+    </repositories>
+
+</project>

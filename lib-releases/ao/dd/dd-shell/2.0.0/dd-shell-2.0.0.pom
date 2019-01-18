@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--====================================================================-->
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+
+
+    <!--====================================================================-->
+    <parent>
+        <groupId>ao.dd</groupId>
+        <artifactId>dd-parent</artifactId>
+        <version>2.0.0</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+
+    <!--====================================================================-->
+    <name>Digital Delegation -&gt; Shell</name>
+    <groupId>${parent.groupId}</groupId>
+    <artifactId>dd-shell</artifactId>
+    <version>2.0.0</version>
+
+
+    <!--====================================================================-->
+    <repositories>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
+    </repositories>
+
+
+    <!--====================================================================-->
+    <dependencies>
+        <dependency>
+            <groupId>ao.dd</groupId>
+            <artifactId>dd-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ao.utils</groupId>
+            <artifactId>utils-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ao.utils</groupId>
+            <artifactId>utils-persist</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ao.utils</groupId>
+            <artifactId>utils-serial-persist</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>glub</groupId>
+            <artifactId>gtftps</artifactId>
+            <version>2.5.15</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javolution</groupId>
+            <artifactId>javolution</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+    </dependencies>
+</project>
